@@ -7,7 +7,8 @@ echo ' ' \n ' Hi Here '\n' Mahesh '
 
 echo \z
 echo \\z
-echo "secound commit"
+
+echo; echo
 echo "\v\v\v\v"
 # Prints \v\v\v\v
 # Must use the −e option with 'echo' to print escaped characters.
