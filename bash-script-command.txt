@@ -1,0 +1,417 @@
+1. ls - List directory contents
+
+    Scenario: List all files in the current directory.
+
+ls
+
+2. ls -l - List files in long format
+
+    Scenario: Show file permissions, owner, size, and modification date.
+
+ls -l
+
+3. ls -a - List all files, including hidden
+
+    Scenario: List all files including .dotfiles.
+
+ls -a
+
+4. ls -lh - List files with human-readable sizes
+
+    Scenario: Display file sizes in KB, MB, GB instead of bytes.
+
+ls -lh
+
+5. ls -R - List files recursively
+
+    Scenario: Show files in the current directory and all subdirectories.
+
+ls -R
+
+6. ls -t - List files sorted by modification time
+
+    Scenario: Show files sorted by modification time (most recent first).
+
+ls -lt
+
+7. ls -S - List files sorted by size
+
+    Scenario: Show files sorted by size (largest first).
+
+ls -S
+
+8. ls -i - List files with inode number
+
+    Scenario: Show the inode number of each file.
+
+ls -i
+
+9. ls -d - List only directories
+
+    Scenario: List only directories in the current directory.
+
+ls -d */
+
+10. find - Search for files in a directory hierarchy
+
+    Scenario: Find all .log files in a directory and its subdirectories.
+
+find /path/to/search -name "*.log"
+
+11. find . -type f - List files recursively
+
+    Scenario: Find all files (not directories) in the current directory.
+
+find . -type f
+
+12. find . -type d - List directories recursively
+
+    Scenario: Find all directories in the current directory.
+
+find . -type d
+
+13. find . -size +100M - Find files larger than 100MB
+
+    Scenario: Locate files greater than 100MB.
+
+find . -size +100M
+
+14. locate - Find files by name using a pre-built database
+
+    Scenario: Locate a file without having to search the entire file system.
+
+locate filename
+
+15. updatedb - Update the database for locate
+
+    Scenario: Update the database used by locate for more accurate search results.
+
+sudo updatedb
+
+16. tree - Display directory structure in a tree format
+
+    Scenario: Show directory contents in a hierarchical tree format.
+
+tree /path/to/directory
+
+17. stat - Display detailed information about a file
+
+    Scenario: Get detailed information about a specific file or directory.
+
+stat filename
+
+18. du - Estimate file space usage
+
+    Scenario: Display the disk usage of a directory and its subdirectories.
+
+du -sh /path/to/directory
+
+19. du -a - Show the disk usage of all files and directories
+
+    Scenario: Get disk usage for every file and directory recursively.
+
+du -a /path/to/directory
+
+20. du -h - Display disk usage in human-readable format
+
+    Scenario: Show disk usage with human-readable file sizes.
+
+du -h /path/to/directory
+
+21. df - Show disk space usage of file systems
+
+    Scenario: Display available and used disk space on all mounted file systems.
+
+df -h
+
+22. df -T - Show the filesystem type along with disk usage
+
+    Scenario: Display disk space along with filesystem type.
+
+df -T
+
+23. du -sh * - List disk usage for all files and subdirectories
+
+    Scenario: Get the total disk usage of each file and directory in the current directory.
+
+du -sh *
+
+24. grep - Search text using patterns
+
+    Scenario: Find a string or pattern in files.
+
+grep "search_string" filename
+
+25. grep -r - Search recursively
+
+    Scenario: Search for a string in files recursively in the current directory.
+
+grep -r "pattern" .
+
+26. grep -i - Case-insensitive search
+
+    Scenario: Search for a string in a case-insensitive manner.
+
+grep -i "pattern" filename
+
+27. grep -l - List files containing a pattern
+
+    Scenario: List files that contain a specific string.
+
+grep -l "pattern" *
+
+28. grep -v - Exclude lines containing a pattern
+
+    Scenario: Display lines that do not contain the specified pattern.
+
+grep -v "pattern" filename
+
+29. cut - Remove sections from each line of files
+
+    Scenario: Extract the first column from a file.
+
+cut -d',' -f1 filename
+
+30. cut -d' ' -f2 - Extract the second field from a space-separated file
+
+    Scenario: Extract the second column in a space-separated text file.
+
+cut -d' ' -f2 filename
+
+31. sort - Sort lines of text files
+
+    Scenario: Sort the contents of a file alphabetically.
+
+sort filename
+
+32. sort -n - Sort by numerical value
+
+    Scenario: Sort the file contents numerically.
+
+sort -n filename
+
+33. sort -r - Sort in reverse order
+
+    Scenario: Sort the file contents in reverse order.
+
+sort -r filename
+
+34. uniq - Remove duplicate lines from a file
+
+    Scenario: Remove duplicate lines from a sorted file.
+
+sort filename | uniq
+
+35. wc - Word, line, and character count
+
+    Scenario: Count the number of lines, words, and characters in a file.
+
+wc filename
+
+36. wc -l - Count lines in a file
+
+    Scenario: Count the number of lines in a file.
+
+wc -l filename
+
+37. tail - Output the last part of files
+
+    Scenario: Show the last 10 lines of a file.
+
+tail filename
+
+38. tail -n 20 - Show the last 20 lines of a file
+
+    Scenario: Display the last 20 lines of a log file.
+
+tail -n 20 filename
+
+39. tail -f - Follow the output of a file in real-time
+
+    Scenario: Monitor the end of a log file in real time.
+
+tail -f /var/log/syslog
+
+40. head - Output the first part of files
+
+    Scenario: Show the first 10 lines of a file.
+
+head filename
+
+41. head -n 20 - Show the first 20 lines of a file
+
+    Scenario: Display the first 20 lines of a file.
+
+head -n 20 filename
+
+42. head -n 10 file | tail -n 5 - Show lines 6 to 10 of a file
+
+    Scenario: Combine head and tail to display lines from 6 to 10.
+
+head -n 10 file | tail -n 5
+
+======================================================================================================================================
+
+43. tar - Archive Files
+
+Scenario: Create a compressed tar archive of files and directories.
+Basic Syntax:
+
+tar [options] archive_name.tar files_to_archive
+
+1. Create a Simple Archive (tar)
+
+If you want to create an archive of files without compression, you can use the tar command as follows:
+Command:
+
+tar -cf archive_name.tar file1.txt file2.txt dir1
+
+    -c: Create a new archive.
+    -f: Specifies the filename of the archive.
+    archive_name.tar: The name of the archive file you want to create.
+    file1.txt file2.txt dir1: The files and directories you want to include in the archive.
+
+Example:
+
+tar -cf my_archive.tar file1.txt file2.txt /home/user/docs
+
+    This creates an archive my_archive.tar that contains file1.txt, file2.txt, and the /home/user/docs directory.
+
+2. Create a Compressed Archive with Gzip (tar.gz)
+
+You can compress the archive using the gzip algorithm by adding the -z option.
+Command:
+
+tar -czf archive_name.tar.gz file1.txt file2.txt dir1
+
+    -z: Compress the archive using gzip.
+    archive_name.tar.gz: The name of the compressed archive file.
+
+Example:
+
+tar -czf my_archive.tar.gz file1.txt file2.txt /home/user/docs
+
+    This creates a .tar.gz compressed archive.
+
+3. Create a Compressed Archive with Bzip2 (tar.bz2)
+
+If you want a higher compression ratio, you can use bzip2 by adding the -j option.
+Command:
+
+tar -cjf archive_name.tar.bz2 file1.txt file2.txt dir1
+
+    -j: Compress the archive using bzip2.
+
+Example:
+
+tar -cjf my_archive.tar.bz2 file1.txt file2.txt /home/user/docs
+
+    This creates a .tar.bz2 compressed archive.
+
+4. Create a Compressed Archive with Xz (tar.xz)
+
+For even better compression, you can use xz by adding the -J option.
+Command:
+
+tar -cJf archive_name.tar.xz file1.txt file2.txt dir1
+
+    -J: Compress the archive using xz.
+
+Example:
+
+tar -cJf my_archive.tar.xz file1.txt file2.txt /home/user/docs
+
+    This creates a .tar.xz compressed archive.
+
+5. Create a Compressed Archive and Exclude Files
+
+You can use the --exclude option to exclude files or directories from the archive.
+Command:
+
+tar --exclude='*.log' -czf archive_name.tar.gz file1.txt file2.txt /home/user/logs
+
+    --exclude='*.log': Exclude all .log files from the archive.
+
+Example:
+
+tar --exclude='*.log' -czf my_archive.tar.gz file1.txt file2.txt /home/user/docs
+
+    This creates a .tar.gz archive while excluding any .log files.
+
+6. View the Contents of a .tar Archive
+
+You can list the contents of a .tar archive without extracting it using the -t option.
+Command:
+
+tar -tf archive_name.tar
+
+Example:
+
+tar -tf my_archive.tar
+
+    This lists all the files contained in the my_archive.tar archive.
+
+7. Extract Files from a .tar Archive
+
+To extract the contents of a .tar archive, you can use the -x option.
+Command:
+
+tar -xf archive_name.tar
+
+Example:
+
+tar -xf my_archive.tar
+
+    This extracts the contents of my_archive.tar into the current directory.
+
+8. Extract Files from a Compressed .tar.gz Archive
+
+To extract the contents of a compressed .tar.gz archive, use the -z option with -x.
+Command:
+
+tar -xzf archive_name.tar.gz
+
+Example:
+
+tar -xzf my_archive.tar.gz
+
+    This extracts the contents of my_archive.tar.gz.
+
+9. Extract Files from a Compressed .tar.bz2 Archive
+
+To extract a .tar.bz2 archive, use the -j option.
+Command:
+
+tar -xjf archive_name.tar.bz2
+
+Example:
+
+tar -xjf my_archive.tar.bz2
+
+    This extracts the contents of my_archive.tar.bz2.
+
+10. Extract Files from a Compressed .tar.xz Archive
+
+To extract a .tar.xz archive, use the -J option.
+Command:
+
+tar -xJf archive_name.tar.xz
+
+Example:
+
+tar -xJf my_archive.tar.xz
+
+    This extracts the contents of my_archive.tar.xz.
+
+11. Extract Files to a Specific Directory
+
+You can extract files to a specific directory using the -C option.
+Command:
+
+tar -xf archive_name.tar -C /path/to/destination
+
+Example:
+
+tar -xf my_archive.tar -C /home/user/extracted_files
+
+    This extracts the contents of my_archive.tar into /home/user/extracted_files.
